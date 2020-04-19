@@ -52,7 +52,7 @@ void interrupt_handler(__attribute__((unused)) struct cpu_state cpu, unsigned in
 	}
 	else if(scan_code == 0x1c) //enter key
 	{
-		char** theTokens = (char *[]){};
+		char** theTokens = (char**)getMem(12);
 		strtok(theTokens, interrupt_input);
 		//char* is a collecton of char (string)
 		//int* is a collection int (int array)

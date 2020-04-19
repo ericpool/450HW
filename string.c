@@ -54,6 +54,7 @@ char *append(char *orig, char c)
 
 void strtok(char** dest, char* src)
 {
+    
     int j = 0;
     int follower = 0;
     char* emptyPointer = getMem(strlen(src));
@@ -71,7 +72,7 @@ void strtok(char** dest, char* src)
             strcpy(dest[j], emptyPointer, follower);
             freeMem(emptyPointer, strlen(src));
             follower = 0;  
-            j++;
+            j += 4;
         }
         else
         {
@@ -81,7 +82,35 @@ void strtok(char** dest, char* src)
     }
     freeMem(emptyPointer, strlen(src));
     fb_clear();
-    fb_write_string(0, dest[0], strlen(dest[0]));
-     
+    fb_write_string(0, dest[4], strlen(dest[4]));
 }
+
+//  int j = 0;
+//     int follower = 0;
+//     char* emptyPointer = getMem(strlen(src));
+//     for (int i = 0; i < strlen(src); i++)
+//     {
+        
+//         if(strlen(emptyPointer) < 1)
+//         {
+//             emptyPointer = getMem(strlen(src));
+//         }
+
+//         if(src[i] == 32 || src[i] == '\0')
+//         {
+//             dest[j] = getMem(follower);
+//             strcpy(dest[j], emptyPointer, follower);
+//             freeMem(emptyPointer, strlen(src));
+//             follower = 0;  
+//             j++;
+//         }
+//         else
+//         {
+//             strcat(emptyPointer, &src[i]);
+//         }
+//         follower++;       
+//     }
+//     freeMem(emptyPointer, strlen(src));
+//     fb_clear();
+//     fb_write_string(0, dest[0], strlen(dest[0]));
 
